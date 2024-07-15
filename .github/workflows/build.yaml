@@ -1,0 +1,36 @@
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-mmsys:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: LaTeX Build
+        uses: xu-cheng/latex-action@v3
+        with:
+          docker_image: ghcr.io/xu-cheng/texlive-full:20230901
+          working_directory: latex
+          root_file: main.tex
+          latexmk_use_xelatex: true
+          extra_system_packages: "inkscape"
+          latexmk_shell_escape: true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: draft
+          path: main.pdf
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: main.pdf
