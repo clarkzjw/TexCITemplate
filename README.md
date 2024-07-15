@@ -7,10 +7,19 @@
 + [TexLive](https://www.tug.org/texlive/)
 + [VSCode](https://code.visualstudio.com/)
 + [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
++ [Zotero](https://www.zotero.org/)
++ [Zotero Connector](https://www.zotero.org/download/)
++ [Zotero Better BibTeX](https://retorque.re/zotero-better-bibtex/)
 
-Optional LaTeX Workshop setting:
+Optional:
+
++ VSCode LaTeX Workshop setting:
 
 ![](./static/latex_workshop_setting.png)
+
++ Zotero Better BibTeX can keep the `.bib` file in the project folder automatically updated with the references in Zotero.
+
+![](./static/zotero_export.png)
 
 ## Workflow
 
